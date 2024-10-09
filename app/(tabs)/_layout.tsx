@@ -1,37 +1,53 @@
 import { Tabs } from "expo-router";
-
-import { TabBarIcon } from "@/components/navigation/TabBarIcon";
-
-import { Colors } from "@/constants/Colors";
-
-import { useColorScheme } from "@/hooks/useColorScheme";
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "dark"].tint,
-        headerShown: false
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: '#C90900',
+          borderTopWidth: 0,
+          position: 'absolute',
+          bottom: 16,
+          borderRadius: 1000,
+          marginHorizontal: 16,
+          paddingHorizontal: 16,
+          height: 60,
+          justifyContent: 'center', // Centra el contenido verticalmente
+          alignItems: 'center', // Asegura que los iconos estén centrados
+          paddingBottom: 0, // Ajusta el espaciado inferior
+        }
       }}
     >
       <Tabs.Screen
         name="Home"
         options={{
-          title: "Home",
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? "home" : "home-outline"} color={color} />
-          )
+          tabBarIcon: ({ color, focused }) => {
+            return <FontAwesome5 name={focused ? 'home' : 'home'} size={24} color={focused ? "white" : "grey"} solid={focused} />
+          },
+          tabBarShowLabel: false,
         }}
       />
       <Tabs.Screen
-        name="Explore"
+        name="Profile"
         options={{
-          title: "Explore",
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? "code-slash" : "code-slash-outline"} color={color} />
-          )
+          tabBarIcon: ({ color, focused }) => {
+            return <FontAwesome5 name={focused ? 'user' : 'user'} size={24} color={focused ? "white" : "grey"} solid={focused} />
+          },
+          tabBarShowLabel: false,
+        }}
+      />
+      <Tabs.Screen
+        name="Nfc"
+        options={{
+          tabBarIcon: ({ color, focused }) => {
+            return <FontAwesome6 name="nfc-symbol" size={24} color={focused ? "white" : "grey"} solid={focused} />
+          },
+          tabBarShowLabel: false,
         }}
       />
     </Tabs>
