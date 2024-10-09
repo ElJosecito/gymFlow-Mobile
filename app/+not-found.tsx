@@ -9,12 +9,12 @@ export default function NotFoundScreen() {
   return (
     <>
       <Stack.Screen options={{ title: 'Oops!' }} />
-      <Text className="text-white">This screen doesn't exist.</Text>
+      <Text className="">This screen doesn't exist.</Text>
 
       <Pressable
         onPress={() => router.navigate('/(Auth)/Login')}
       >
-        <Text className="text-white">Go to home screen!</Text>
+        <Text className="">Go to home screen!</Text>
       </Pressable>
 
     </>

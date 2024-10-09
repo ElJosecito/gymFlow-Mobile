@@ -1,11 +1,12 @@
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { StyleSheet, Image, Platform, Text } from 'react-native';
+import { View, Text } from 'react-native'
+import React from 'react'
 
-
-export default function TabTwoScreen() {
+const Explore = () => {
   return (
-    <>
-    <Text className="text-white">Explore</Text>
-    </>
-  );
+    <View>
+      <Text>Explore</Text>
+    </View>
+  )
 }
+
+export default Explore
