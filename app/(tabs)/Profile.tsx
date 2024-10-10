@@ -30,7 +30,7 @@ const Profile = () => {
   const { logout } = useAuthStore() as { logout: () => void }
 
   const [user, setUser] = useState<User | null>(null)
-
+  const [image, setImage] = useState<string>('')
   const [createDate, setCreateDate] = useState<string>('')
   const [updateDate, setUpdateDate] = useState<string>('')
 
@@ -38,7 +38,6 @@ const Profile = () => {
     try {
       const response = await getUser(userId)
       setUser(response)
-      // console.log(response)
       setCreateDate(moment(response.createdAt).format('MMMM Do YYYY'))
       setUpdateDate(moment(response.updatedAt).format('MMMM Do YYYY'))
 
@@ -60,7 +59,7 @@ const Profile = () => {
           {
             user?.image ? (
               <Image
-                source={{ uri: user?.image }}
+                source={{ uri: user?.image?.replace(/\\/g, '/') }}
                 style={{ width: 100, height: 100, borderRadius: 50 }}
               />
             ) : (
@@ -68,7 +67,7 @@ const Profile = () => {
             )
           }
           <View className='my-5 border-4 border-[#d6d6d6] p-2 px-4 rounded-2xl w-full flex justify-center items-center'>
-            <Text className='font-bold text-xl'>{user?.firstName} {user?.lastName}</Text>
+            <Text className='font-bold text-xl capitalize'>{user?.firstName} {user?.lastName}</Text>
           </View>
 
           <View className='mb-5 border-4 border-[#d6d6d6] p-2 px-4 rounded-2xl w-full flex justify-center items-center'>

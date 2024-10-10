@@ -37,7 +37,7 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
-    const socket = io("http://10.0.0.180:3000"); // Conectar al servidor
+    const socket = io("http://10.0.0.178:3000"); // Conectar al servidor
 
     // Escuchar el evento gymStatusUpdate
     socket.on("gymStatusUpdate", (data) => {
