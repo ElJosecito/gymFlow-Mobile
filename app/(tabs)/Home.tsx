@@ -1,7 +1,6 @@
 import { View, Text, StatusBar } from 'react-native'
 import React, { useState, useEffect } from 'react'
 
-import { useAuthStore } from '@/store/auth'
 import { getGymEntry } from '@/api/gymEntry'
 
 // socket io

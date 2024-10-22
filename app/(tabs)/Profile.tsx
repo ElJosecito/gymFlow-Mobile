@@ -39,7 +39,7 @@ const Profile = () => {
       const response = await getUser(userId)
       setUser(response)
       setCreateDate(moment(response.createdAt).format('MMMM Do YYYY'))
-      setUpdateDate(moment(response.updatedAt).format('MMMM Do YYYY'))
+      setUpdateDate(moment(response.memberShipEnd).format('MMMM Do YYYY'))
 
     } catch (error) {
       console.log(error)
@@ -81,10 +81,6 @@ const Profile = () => {
           <View className='mb-5 border-4 border-[#d6d6d6] py-3 px-10 rounded-2xl w-full flex flex-row justify-between items-center'>
             <Text className={`font-bold text-xl ${user?.active ? "text-green-600" : "text-red-600"}`}>{user?.active ? 'Active' : 'Inactive'}</Text>
             <Text className='font-bold text-xl capitalize'>{user?.memberShip}</Text>
-          </View>
-
-          <View className='mb-5 border-4 border-[#d6d6d6] p-2 px-4 rounded-2xl w-full flex justify-center items-center'>
-            <Text className='font-bold text-xl'>{createDate}</Text>
           </View>
 
           <View className='mb-5 border-4 border-[#d6d6d6] p-2 px-4 rounded-2xl w-full flex justify-center items-center'>

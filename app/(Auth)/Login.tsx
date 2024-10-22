@@ -23,7 +23,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await login(email, password)
+      const response = await login(email.toLowerCase(), password)
       if (response.status === 400) {
         Alert.alert('Error', 'Invalid email or password')
         return
